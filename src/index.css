@@ -42,10 +42,10 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  overflow: hidden; /* Dikunci untuk desktop agar parallax berjalan mulus */
+  overflow: hidden; 
 }
 
-/* Allow scrolling on mobile */
+/* Pengaturan khusus untuk Mobile agar rapi dan tidak berantakan */
 @media only screen and (max-width: 768px) {
   body {
     overflow: auto !important;
@@ -60,10 +60,33 @@ body {
     touch-action: manipulation;
   }
 
-  /* Ensure no fixed elements block scrolling */
   .container-main {
     position: static !important;
     height: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Membuat container bagian pertama menyesuaikan konten di HP */
+  .container1 {
+    height: auto !important;
+    min-height: 80vh;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Mengatur ukuran foto di HP agar proporsional */
+  .container1 img, 
+  .container-main img {
+    width: 80% !important;
+    max-width: 320px !important;
+    height: auto !important;
+    object-fit: contain;
+    margin: 20px auto;
   }
 }
 
@@ -115,7 +138,7 @@ main {
   align-items: center;
 }
 
-/* TAMBAHAN UTAMA: Mengamankan ukuran gambar agar tidak merusak layout & parallax */
+/* Pengaturan umum gambar untuk Desktop */
 .container1 img, 
 .container-main img {
   max-width: 100%;
@@ -140,8 +163,6 @@ main {
   height: var(--vh);
   min-height: 100vh;
   margin: 0 auto;
-  margin-top: 0;
-  margin-bottom: 0;
   padding-top: 150px;
   padding-bottom: 150px;
   background: linear-gradient(180deg, rgba(11, 8, 12, 0.95) 0%, rgba(11, 8, 12, 0.98) 100%);
